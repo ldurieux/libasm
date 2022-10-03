@@ -13,11 +13,12 @@
 #include <time.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "libasm.h"
 
-#define TIMES 1000
-#define SIZE 1000000
+#define TIMES 10000000
+#define SIZE 256
 
 //NOLINTBEGIN
 char	*make_str(void)
@@ -36,11 +37,6 @@ char	*make_str(void)
 	return (res);
 }
 
-//start_time = (float)clock()/CLOCKS_PER_SEC;
-//for (int i = 0; i < TIMES; i++)
-//	res = ft_strlen(str);
-//end_time = (float)clock()/CLOCKS_PER_SEC;
-//printf("ASM duration: %f : %lu\n", end_time - start_time, res);
 int	main(void)
 {
 	size_t	res;
@@ -49,6 +45,17 @@ int	main(void)
 	double	end_time;
 
 	str = make_str();
+	res = strlen(str);
+	start_time = (float)clock()/CLOCKS_PER_SEC;
+	for (int i = 0; i < TIMES; i++)
+		res = strlen(str);
+	end_time = (float)clock()/CLOCKS_PER_SEC;
+	printf("C duration:   %f : %lu\n", end_time - start_time, res);
+	start_time = (float)clock()/CLOCKS_PER_SEC;
+	for (int i = 0; i < TIMES; i++)
+		res = ft_strlen(str);
+	end_time = (float)clock()/CLOCKS_PER_SEC;
+	printf("ASM duration: %f : %lu\n", end_time - start_time, res);
 	free(str);
 	return (0);
 }

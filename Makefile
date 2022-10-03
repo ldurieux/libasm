@@ -4,6 +4,7 @@ SRCS 		= \
 			  main.c \
 
 ASMSRCS		= \
+			  srcs/ft_strlen.asm
 
 LIB_NAMES 	= \
 
