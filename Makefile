@@ -4,7 +4,8 @@ SRCS 		= \
 			  main.c \
 
 ASMSRCS		= \
-			  srcs/ft_strlen.asm
+			  srcs/ft_strlen.asm \
+			  srcs/ft_strcpy.asm \
 
 LIB_NAMES 	= \
 
@@ -22,7 +23,7 @@ OBJS			= ${SRCS:.c=.o} $(ASMSRCS:.asm=.o)
 DEPS			= ${SRCS:.c=.d}
 CC				= gcc -no-pie
 CCWFLGS			= -Wall -Wextra -Werror
-CCDBGFLGS		= -fsanitize=address -g
+CCDBGFLGS		= -g
 CCO1FLGS		= -O1 -march=native
 CCO2FLGS		= -O2 -march=native
 CCO3FLGS		= -O3 -march=native
