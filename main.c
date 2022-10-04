@@ -33,42 +33,31 @@ char	*make_str(void)
 	memset(res, 'a', SIZE);
 	i = -1;
 	while (++i < SIZE)
-		res[i] = i % (125) + 1;
+		res[i] = i % (125) + 'a';
 	res[SIZE] = '\0';
 	return (res);
 }
 
 int	main(void)
 {
-	int		res;
+	char	*res;
 	char	*s1;
 	char	*s2;
 	double	start_time;
 	double	end_time;
 
-	s1 = malloc(sizeof(char) * 10);
-	res = ft_read(3, s1, 5);
-	if (res == -1)
+	s1 = make_str();
+	res = ft_strdup(s1);
+	if (!res)
 	{
 		printf("%s\n", strerror(errno));
-		return (res);
+		return (1);
 	}
-	ft_write(1, s1, res);
-//	s1 = make_str();
-//	s2 = make_str();
-//	ft_strcmp(s1, s2);
-//	start_time = (float)clock()/CLOCKS_PER_SEC;
-//	for (int i = 0; i < TIMES; i++)
-//		res = ft_strcmp(s1, s2);
-//	end_time = (float)clock()/CLOCKS_PER_SEC;
-//	printf("ASM duration: %f : %d\n", end_time - start_time, res);
-//	start_time = (float)clock()/CLOCKS_PER_SEC;
-//	for (int i = 0; i < TIMES; i++)
-//		res = strcmp(s1, s2);
-//	end_time = (float)clock()/CLOCKS_PER_SEC;
-//	printf("C duration:   %f : %d\n", end_time - start_time, res);
-//	free(s1);
-//	free(s2);
+	if (ft_write(1, s1, SIZE - 1) == -1)
+	{
+		printf("%s\n", strerror(errno));
+		return (1);
+	}
 	return (0);
 }
 //NOLINTEND
