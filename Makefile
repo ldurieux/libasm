@@ -8,6 +8,7 @@ ASMSRCS		= \
 			  srcs/ft_strcpy.asm \
 			  srcs/ft_strcmp.asm \
 			  srcs/ft_write.asm \
+			  srcs/ft_read.asm \
 
 LIB_NAMES 	= \
 

@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <errno.h>
 
 #include "libasm.h"
 
@@ -45,7 +46,14 @@ int	main(void)
 	double	start_time;
 	double	end_time;
 
-	ft_write(1, "test\n", 5);
+	s1 = malloc(sizeof(char) * 10);
+	res = ft_read(3, s1, 5);
+	if (res == -1)
+	{
+		printf("%s\n", strerror(errno));
+		return (res);
+	}
+	ft_write(1, s1, res);
 //	s1 = make_str();
 //	s2 = make_str();
 //	ft_strcmp(s1, s2);
