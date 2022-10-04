@@ -45,21 +45,22 @@ int	main(void)
 	double	start_time;
 	double	end_time;
 
-	s1 = make_str();
-	s2 = make_str();
-	ft_strcmp(s1, s2);
-	start_time = (float)clock()/CLOCKS_PER_SEC;
-	for (int i = 0; i < TIMES; i++)
-		res = ft_strcmp(s1, s2);
-	end_time = (float)clock()/CLOCKS_PER_SEC;
-	printf("ASM duration: %f : %d\n", end_time - start_time, res);
-	start_time = (float)clock()/CLOCKS_PER_SEC;
-	for (int i = 0; i < TIMES; i++)
-		res = strcmp(s1, s2);
-	end_time = (float)clock()/CLOCKS_PER_SEC;
-	printf("C duration:   %f : %d\n", end_time - start_time, res);
-	free(s1);
-	free(s2);
+	ft_write(1, "test\n", 5);
+//	s1 = make_str();
+//	s2 = make_str();
+//	ft_strcmp(s1, s2);
+//	start_time = (float)clock()/CLOCKS_PER_SEC;
+//	for (int i = 0; i < TIMES; i++)
+//		res = ft_strcmp(s1, s2);
+//	end_time = (float)clock()/CLOCKS_PER_SEC;
+//	printf("ASM duration: %f : %d\n", end_time - start_time, res);
+//	start_time = (float)clock()/CLOCKS_PER_SEC;
+//	for (int i = 0; i < TIMES; i++)
+//		res = strcmp(s1, s2);
+//	end_time = (float)clock()/CLOCKS_PER_SEC;
+//	printf("C duration:   %f : %d\n", end_time - start_time, res);
+//	free(s1);
+//	free(s2);
 	return (0);
 }
 //NOLINTEND

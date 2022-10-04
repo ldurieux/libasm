@@ -7,6 +7,7 @@ ASMSRCS		= \
 			  srcs/ft_strlen.asm \
 			  srcs/ft_strcpy.asm \
 			  srcs/ft_strcmp.asm \
+			  srcs/ft_write.asm \
 
 LIB_NAMES 	= \
 
