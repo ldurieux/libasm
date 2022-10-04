@@ -18,7 +18,7 @@
 #include "libasm.h"
 
 #define TIMES 10000000
-#define SIZE 1
+#define SIZE 10
 
 //NOLINTBEGIN
 char	*make_str(void)
@@ -39,25 +39,27 @@ char	*make_str(void)
 
 int	main(void)
 {
-	size_t	res;
-	char	*str;
-	char	*dst;
+	int		res;
+	char	*s1;
+	char	*s2;
 	double	start_time;
 	double	end_time;
 
-	dst = malloc(sizeof(char) * SIZE);
-	str = make_str();
+	s1 = make_str();
+	s2 = make_str();
+	ft_strcmp(s1, s2);
 	start_time = (float)clock()/CLOCKS_PER_SEC;
 	for (int i = 0; i < TIMES; i++)
-		dst = ft_strcpy(dst, str);
+		res = ft_strcmp(s1, s2);
 	end_time = (float)clock()/CLOCKS_PER_SEC;
-	printf("ASM duration: %f : %s\n", end_time - start_time, dst);
+	printf("ASM duration: %f : %d\n", end_time - start_time, res);
 	start_time = (float)clock()/CLOCKS_PER_SEC;
 	for (int i = 0; i < TIMES; i++)
-		dst = strcpy(dst, str);
+		res = strcmp(s1, s2);
 	end_time = (float)clock()/CLOCKS_PER_SEC;
-	printf("C duration:   %f : %s\n", end_time - start_time, dst);
-	free(str);
+	printf("C duration:   %f : %d\n", end_time - start_time, res);
+	free(s1);
+	free(s2);
 	return (0);
 }
 //NOLINTEND
